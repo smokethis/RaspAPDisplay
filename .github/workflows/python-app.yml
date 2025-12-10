@@ -21,8 +21,9 @@ jobs:
     - uses: actions/checkout@v4
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        python3 -m venv ./venv
+        ./venv/python -m pip install --upgrade pip
+        ./venv/python pip install -r requirements.txt
     - name: Execute
       run: |
-        main.py
+        ./venv/python main.py
